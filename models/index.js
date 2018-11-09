@@ -7,23 +7,23 @@ const Page = db.define('pages', {
     title:  {
         type : Sequelize.STRING,
         allowNull : false,
-        validate : {
-            isString : true
-        }
+        // validate : {
+        //     isString : true
+        // }
     },
     slug:  {
         type : Sequelize.STRING,
         allowNull : false,
-        validate : {
-            isString : true
-        }
+        // validate : {
+        //     isString : true
+        // }
     },
     content:  {
         type : Sequelize.STRING,
         allowNull : false,
-        validate : {
-            isString : true
-        }
+        // validate : {
+        //     isString : true
+        // }
     },
     status: Sequelize.BOOLEAN,
 });
@@ -32,9 +32,9 @@ const User = db.define('users', {
     name:  {
         type : Sequelize.STRING,
         allowNull : false,
-        validate : {
-            isString : true
-        }
+        // validate : {
+        //     isString : true
+        // }
     },
     email: {
         type: Sequelize.STRING,

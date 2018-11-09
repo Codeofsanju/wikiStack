@@ -25,13 +25,9 @@ db.authenticate().then(() => {
 
 
 
-// app.get('/', async (req, res, next) =>{
-//     try {
-//     res.send(postList());
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+app.get('/', async (req, res, next) =>{
+    res.redirect('/wiki')
+});
 
 
 

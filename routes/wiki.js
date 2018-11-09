@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const { addPage } = require("../views");
+const { addPage, main } = require("../views");
+// const { main } = require("../views");
+
 // /wiki + anything here
 
 
 
 router.get("/", async (req, res, next) => {
-    res.send('got to GET /wiki/');
+    res.send(main());
 });
 
 

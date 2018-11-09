@@ -15,17 +15,17 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) =>{
     // const title = req.body.title
     // const content = req.body.content
-    const randomSlug = req.body.title.replace(/\s+/g, '_').replace(/\W/g, '')
+    const generatedSlug = req.body.title.replace(/\s+/g, '_').replace(/\W/g, '');
     const page = new Page({
         title : req.body.title,
-        slug : randomSlug,
+        slug : generatedSlug,
         content : req.body.content
     })
     try {
-        await page.save()
-        res.redirect('/')
+        await page.save();
+        res.redirect('/');
     } catch (error) {
-        next(error)
+        next(error);
     }
 });    
 

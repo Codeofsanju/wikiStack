@@ -1,15 +1,21 @@
 const express = require('express');
 const morgan  = require('morgan');
 const bodyparser = require('body-parser');
+const html = require('html-template-tag')
+const postList = require('./views/main')
 const app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + './stylesheets'));
 app.use(bodyparser.urlencoded({extended: true}));
 
 
 app.get('/', async (req, res, next) =>{
-    res.send('<h1> Hello World! </h1>');
+    try {
+    res.send(postList());
+    } catch (error) {
+        next(error)
+    }
 })
 
 

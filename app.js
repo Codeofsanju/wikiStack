@@ -5,7 +5,7 @@ const html = require('html-template-tag');  // something something add cool
 const postList = require('./views/main');   // temp linking for navigating to main
 const app = express();  // for running express
 const { db }  = require('./models/index');   // importing db
-
+const models = require('./models')
 
 
 
@@ -27,10 +27,15 @@ app.get('/', async (req, res, next) =>{
     }
 });
 
-
 const PORT = 3000;
 
-app.listen(PORT, () =>{
-    console.log(`App listening in ${PORT}`);
-});
+const init = async () => {
+    await models.User.sync()
+    await models.Page.sync()
+    // await db.sync()
+    app.listen(PORT, () =>{
+        console.log(`App listening in ${PORT}`);
+    });
+}
+init();
 
